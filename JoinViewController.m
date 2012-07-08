@@ -92,7 +92,6 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated { 
-	[_client removeObserver:self forKeyPath:@"availableServers"];
 }
 
 - (void)viewDidUnload {
@@ -120,9 +119,16 @@
 	return cell;
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [_client connectToPeerID:[[_client availableServers] objectAtIndex:indexPath.row]];
+}
+
 - (IBAction)exitAction:(id)sender {
 	[self.delegate joinViewControllerDidCancel:self];
 }
+
+
 
 
 @end

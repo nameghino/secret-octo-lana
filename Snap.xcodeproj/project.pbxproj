@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0300FFF615A2508D003D25DB /* Action_Man.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0300FFF515A2508D003D25DB /* Action_Man.ttf */; };
+		0300FFFA15A252E4003D25DB /* DataReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0300FFF915A252E4003D25DB /* DataReceiver.m */; };
 		356176E215A23AF40045A611 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356176DF15A23AF40045A611 /* HostViewController.m */; };
 		356176E315A23AF40045A611 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356176E115A23AF40045A611 /* JoinViewController.m */; };
 		356176E915A23B080045A611 /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356176E515A23B080045A611 /* HostViewController.xib */; };
@@ -68,6 +70,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0300FFF515A2508D003D25DB /* Action_Man.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Action_Man.ttf; sourceTree = SOURCE_ROOT; };
+		0300FFF815A252E4003D25DB /* DataReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataReceiver.h; sourceTree = "<group>"; };
+		0300FFF915A252E4003D25DB /* DataReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataReceiver.m; sourceTree = "<group>"; };
 		356176DE15A23AF40045A611 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		356176DF15A23AF40045A611 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		356176E015A23AF40045A611 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
@@ -176,6 +181,8 @@
 				356176F715A23B400045A611 /* MatchmakingClient.m */,
 				356176F815A23B400045A611 /* MatchmakingServer.h */,
 				356176F915A23B400045A611 /* MatchmakingServer.m */,
+				0300FFF815A252E4003D25DB /* DataReceiver.h */,
+				0300FFF915A252E4003D25DB /* DataReceiver.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 		7B67D9E114C9C6AD00254619 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0300FFF515A2508D003D25DB /* Action_Man.ttf */,
 				7B67D9E314C9C6AD00254619 /* InfoPlist.strings */,
 				7B67D9E214C9C6AD00254619 /* Snap-Info.plist */,
 			);
@@ -391,6 +399,7 @@
 				7B01147B151B432C00A0616D /* Icon-Small-50@2x.png in Resources */,
 				356176E915A23B080045A611 /* HostViewController.xib in Resources */,
 				356176EA15A23B080045A611 /* JoinViewController.xib in Resources */,
+				0300FFF615A2508D003D25DB /* Action_Man.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +420,7 @@
 				356176F415A23B250045A611 /* UIFont+SnapAdditions.m in Sources */,
 				356176FA15A23B400045A611 /* MatchmakingClient.m in Sources */,
 				356176FB15A23B400045A611 /* MatchmakingServer.m in Sources */,
+				0300FFFA15A252E4003D25DB /* DataReceiver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

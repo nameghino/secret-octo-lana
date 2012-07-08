@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Hollance. All rights reserved.
 //
 
+#define CONNECTION_TIMEOUT 15.0f
+
 #import "MatchmakingClient.h"
 
 @implementation MatchmakingClient {
@@ -28,6 +30,15 @@
 										sessionMode:GKSessionModeClient];
 	_session.delegate = self;
 	_session.available = YES;
+    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:
+                       self, @"type", nil];
+    
+    [_session setDataReceiveHandler:[DataReceiver new] withContext:(void*)d];
+
+}
+
+-(void) connectToPeerID:(NSString*) peerID {
+    [_session connectToPeer:peerID withTimeout:CONNECTION_TIMEOUT];
 }
 
 #pragma mark - GKSessionDelegate
@@ -38,7 +49,13 @@
 		if (!_availableServers) { _availableServers = [[NSMutableArray alloc] init]; }
 		[_availableServers addObject:peerID];
 		[self.delegate clientDidUpdateAvailableServers:self];
-	}
+	} else if (state == GKPeerStateConnected) {
+        NSData *myNameData = [[[UIDevice currentDevice] name] dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+        [_session sendDataToAllPeers:myNameData
+                        withDataMode:GKSendDataReliable
+                               error:&error];
+    }
 }
 
 - (void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID {

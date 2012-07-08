@@ -84,6 +84,7 @@
 	if (!_server) {
 		_server = [[MatchmakingServer alloc] init];
 		_server.maxClients = 3;
+        _server.delegate = self;
 		[_server startAcceptingConnectionsForSessionID:SESSION_ID];
 		
 		self.nameTextField.placeholder = _server.session.displayName;
@@ -99,13 +100,27 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 0;
+	return [[_server connectedClients] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	return nil;
+- (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* CellIdentifier = @"Cell";
+	UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (!cell) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+		cell.textLabel.font = [UIFont rw_snapFontWithSize:20.0f];
+		cell.textLabel.textColor = [UIColor snapTextColor];
+	}
+    
+    NSString *peerID = [[_server.connectedClients allKeys] objectAtIndex:indexPath.row];
+    
+	cell.textLabel.text = [_server.connectedClients objectForKey:peerID] == [NSNull null] ? peerID : [_server.connectedClients objectForKey:peerID];
+	return cell;
+
 }
 
+-(void)serverDidUpdateConnectedClients:(MatchmakingServer *)client {
+    [self.tableView reloadData];
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataReceiver.h"
 
 @class MatchmakingClient;
 @protocol MatchmakingClientDelegate <NSObject>
@@ -20,5 +21,6 @@
 @property(nonatomic, strong) id<MatchmakingClientDelegate> delegate;
 
 -(void) startSearchingForServersWithSessionID:(NSString*) sessionID;
+-(void) connectToPeerID:(NSString*) peerID;
 
 @end

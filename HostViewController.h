@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIFont+SnapAdditions.h"
 #import "UIButton+SnapAdditions.h"
+#import "UIColor+SnapAdditions.h"
 
 #import "MatchmakingServer.h"
 
@@ -17,6 +18,6 @@
 -(void) hostViewControllerDidCancel:(HostViewController*) controller;
 @end
 
-@interface HostViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface HostViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MatchmakingServerDelegate>
 @property(nonatomic, weak) id<HostViewControllerDelegate> delegate;
 @end
